@@ -60,8 +60,75 @@ ul.slides img {
   position: relative;
 }
 
+ul.slides li {
+  position: absolute;
+  z-index: 50;
+}
+
 ul.thumbs li a:hover span {
   position: absolute;
   z-index: 101;
+  bottom: -30px;
+  left: -22px;
+  display: block;
+  width: 100px;
+  height: 25px;
+  text-align: center;
+  border-radius: 3px;
+  -webkit-box-shadow: 0px 1px 0px rgba(0,0,0,.4);
+  -mox-box-shadow: 0px 1px 0px rgba(0,0,0,.4);
+  box-shadow: 0px 1px 0px rgba(0,0,0,.4);
 
+  background: #fff: /* Older Browsers */
+  background: linear-gradient(top, #fff 0%, #bcbcbc 100%);
+  background: -moz-linear-gradient(top, #fff 0%, #bcbcbc 100%);
+  background: -webkit-linear-gradient(top, #fff 0%, #bcbcbc 100%);
+  background: -o-linear-gradient(top, #fff 0%, #bcbcbc 100%);
+  background: -ms-linear-gradient(top, #fff 0%, #bcbcbc 100%);
+}
+
+ul.thumbs li a:hover span:before {
+  width: 0px;
+  height: 0px;
+  border-bottom: 5px solid #fff;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  content: '';
+  position: absolute;
+  top: -5px;
+  left: 44px;
+}
+
+ul.thumbs li:first-child a:hover span {
+  left: -3px;
+
+}
+
+ul.thumbs li:first-child a:hover span:before {
+  left: 25px;
+}
+
+/* Animation for slider */
+@-webkit-keyframes 'slide' {
+  0% {left: -500px;}
+  100% {left: 0}
+}
+
+ul.slides li:target {
+  z-index: 100;
+  -webkit-animation-name: slide;
+  -webkit-animation-duration: 1s;
+  -webkit-animation-iteration-count: 1;
+}
+
+/* Not taget */
+@-webkit-keyframes 'noTarget' {
+  0% {z-index: 75px;}
+  100% {z-index: 75px;}
+}
+
+ul.slides li:not(:target) {
+  -webkit-animation-name: noTarget;
+  -webkit-animation-duration: 1s;
+  -webkit-animation-iteration-count: 1;
 }
